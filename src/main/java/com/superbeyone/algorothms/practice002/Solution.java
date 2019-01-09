@@ -4,7 +4,7 @@ package com.superbeyone.algorothms.practice002;
  * @author Mr.superbeyone
  * @project algorithms
  * @className Solution
- * @description 在有序数组中找出两个数，使它们的和为 target
+ * @description two-sum-ii-input-array-is-sorted
  * @create 2019-01-09 09:29
  **/
 
