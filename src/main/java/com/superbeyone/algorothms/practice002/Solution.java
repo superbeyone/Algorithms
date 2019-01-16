@@ -14,7 +14,6 @@ package com.superbeyone.algorothms.practice002;
  */
 public class Solution {
 
-
     /**
      * 使用双指针，一个指针指向值较小的元素，一个指针指向值较大的元素。指向较小元素的指针从头向尾遍历，指向较大元素的指针从尾向头遍历。
      * <p>
