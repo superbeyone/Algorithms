@@ -8,7 +8,6 @@ package com.superbeyone.algorothms.practice001;
  * @create 2019-01-07 15:00
  **/
 
-
 import java.util.LinkedList;
 
 /**
