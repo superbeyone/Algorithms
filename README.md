@@ -82,6 +82,7 @@ public class Solution {
 }
 ```
 ### 2. two-sum-ii-input-array-is-sorted
+[two-sum-ii-input-array-is-sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/)
 ```java
 /**
  * Input: numbers={2, 7, 11, 15}, target=9
@@ -118,7 +119,8 @@ public class Solution {
     }
 }
 ```
-### 3. sum-of-square-numbers
+### 3. sum of square numbers
+[sum of square numbers](https://leetcode.com/problems/sum-of-square-numbers/description/)
 ```java
 /**
  * Input: 5
@@ -144,6 +146,7 @@ public class Solution {
 }
 ```
 ### 4. Reverse Vowels of a String
+[Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/description/)
 ```java
 /**
  * Write a function that takes a string as input and reverse only the vowels of a string.
@@ -191,6 +194,7 @@ public class Solution {
 }
 ```
 ### 5. Valid Palindrome II
+[Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/description/)
 ```java
 /**
  * Given a non-empty string s, you may delete at most one character. Judge whether you can make it a palindrome.
@@ -226,6 +230,7 @@ public class Solution {
 }
 ```
 ### 6. Merge Sorted Array
+[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/description/)
 ```java
 /**
  * Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
@@ -267,6 +272,51 @@ public class Solution {
             }
         }
         Arrays.stream(nums1).forEach(System.out::println);
+    }
+}
+```
+### 7. Linked List Cycle
+[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/description/)
+```java
+/**
+ * Given a linked list, determine if it has a cycle in it.
+ * <p>
+ * To represent a cycle in the given linked list, we use an integer pos which represents the position (0-indexed) in the linked list where tail connects to. If pos is -1, then there is no cycle in the linked list.
+ * <p>
+ * <p>
+ * <p>
+ * Example 1:
+ * <p>
+ * Input: head = [3,2,0,-4], pos = 1
+ * Output: true
+ * Explanation: There is a cycle in the linked list, where tail connects to the second node.
+ */
+
+public class Solution {
+
+    public boolean hasCycle(ListNode head) {
+        if (head == null) {
+            return false;
+        }
+        ListNode l1 = head, l2 = head.next;
+        while (l1 != null && l2 != null && l2.next != null) {
+            if (l1 == l2) {
+                return true;
+            }
+            l1 = l1.next;
+            l2 = l2.next.next;
+        }
+        return false;
+    }
+}
+
+public class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode(int x) {
+        val = x;
+        next = null;
     }
 }
 ```
