@@ -227,42 +227,45 @@ public class Solution {
 ```
 ### 6. Merge Sorted Array
 ```java
-/**
- * Given a non-empty string s, you may delete at most one character. Judge whether you can make it a palindrome.
- * <p>
- * Example 1:
- * Input: "aba"
- * Output: True
- * Example 2:
- * Input: "abca"
- * Output: True
- * Explanation: You could delete the character 'c'.
- */
 public class Solution {
-
+    /**
+     * Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+     * <p>
+     * Note:
+     * <p>
+     * The number of elements initialized in nums1 and nums2 are m and n respectively.
+     * You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2.
+     * Example:
+     * <p>
+     * Input:
+     * nums1 = [1,2,3,0,0,0], m = 3
+     * nums2 = [2,5,6],       n = 3
+     * <p>
+     * Output: [1,2,2,3,5,6]
+     */
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(solution.validPalindrome("aba"));
-        System.out.println(solution.validPalindrome("abca"));
+        int[] nums1 = {1, 2, 3, 0, 0, 0}, nums2 = {2, 5, 6};
+        int m = 3, n = 3;
+
+        merge(nums1, m, nums2, n);
     }
 
-    public  boolean validPalindrome(String s) {
-        int i = -1, j = s.length();
-        while (++i < --j) {
-            if (s.charAt(i) != s.charAt(j)) {
-                return isPalindrome(s, i, j - 1) || isPalindrome(s, i + 1, j);
-            }
-        }
-        return true;
-    }
+    public static void merge(int[] nums1, int m, int[] nums2, int n) {
+        int index1 = m - 1, index2 = n - 1;
+        int indexMerge = m + n - 1;
 
-    private boolean isPalindrome(String s, int i, int j) {
-        while (i < j) {
-            if (s.charAt(i++) != s.charAt(j--)) {
-                return false;
+        while (index1 >= 0 || index2 >= 0) {
+            if (index1 < 0) {
+                nums1[indexMerge--] = nums2[index2--];
+            } else if (index2 < 0) {
+                nums1[indexMerge--] = nums1[index1--];
+            } else if (nums1[index1] > nums2[index2]) {
+                nums1[indexMerge--] = nums1[index1--];
+            } else {
+                nums1[indexMerge--] = nums2[index2--];
             }
         }
-        return true;
+        Arrays.stream(nums1).forEach(System.out::println);
     }
 }
 ```
