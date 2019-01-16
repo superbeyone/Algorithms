@@ -13,6 +13,7 @@ package com.superbeyone.algorothms.practice003;
  * Output: True
  * Explanation: 1 * 1 + 2 * 2 = 5
  */
+
 public class Solution {
 
     public boolean judgeSquareSum(int c) {
