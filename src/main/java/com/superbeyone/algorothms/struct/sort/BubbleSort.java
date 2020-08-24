@@ -17,7 +17,7 @@ public class BubbleSort {
         int[] array = new int[]{3, 9, -1, 10, 20, 6};
         long start = System.currentTimeMillis();
         //冒泡排序
-//        bubbleSort(array);
+        bubbleSort(array);
 
         System.out.println(Arrays.toString(array));
         System.out.println("耗时：" + (System.currentTimeMillis() - start) + " 毫秒");
@@ -25,7 +25,7 @@ public class BubbleSort {
     }
 
     /**
-     * 冒泡排序
+     * 冒泡排序 时间复杂度 O(n^2)
      *
      * @param array 数组
      */
