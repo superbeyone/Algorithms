@@ -15,7 +15,7 @@ public class InsertSort {
     public static void main(String[] args) {
         int[] array = ArrayUtil.getArray();
         long start = System.currentTimeMillis();
-        //选择排序
+        //插入排序
         insertSort(array);
 
         System.out.println(Arrays.toString(array));

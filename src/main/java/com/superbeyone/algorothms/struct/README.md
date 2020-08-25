@@ -179,3 +179,86 @@ public class InsertSort {
     }
 }
 ```
+
+#### 希尔排序
+
+希尔排序法介绍
+
+希尔排序是希尔（Donald Shell）于1959年提出的一种排序算法。希尔排序也是一种插入排序，它是简单插入排序经过改进之后的一个更高效的版本，也称为缩小增量排序。
+
+希尔排序法基本思想
+
+希尔排序是把记录按下标的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法便终止
+
+```java
+import java.util.Arrays;
+
+/**
+ * @author Mr.superbeyone
+ * @project algorithms
+ * @className ShellSort
+ * @description 希尔排序
+ * @date 2020-08-25 13:51
+ **/
+
+public class ShellSort {
+    public static void main(String[] args) {
+        int[] array = ArrayUtil.getArray();
+        long start = System.currentTimeMillis();
+        //希尔排序
+        shellSort(array);
+
+        System.out.println(Arrays.toString(array));
+        System.out.println("耗时：" + (System.currentTimeMillis() - start) + " 毫秒");
+    }
+
+    /**
+     * 希尔排序: 对有序序列在插入时采用交换法
+     *
+     * @param arr 待排序数组
+     */
+    private static void shellSort(int[] arr) {
+        //遍历所有的步长
+        for (int i = arr.length / 2; i > 0; i /= 2) {
+            //遍历所有的元素
+            for (int j = i; j < arr.length; j++) {
+                //遍历本数组中的所有元素
+                for (int k = j - i; k >= 0; k -= i) {
+                    //如果当前元素大于加上步长的那个元素
+                    if (arr[k] > arr[k + i]) {
+                        int temp = arr[k];
+                        arr[k] = arr[k + i];
+                        arr[k + i] = temp;
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * 希尔排序: 对有序序列在插入时采用移动法
+     *
+     * @param arr 待排序数组
+     */
+    private static void shellSort2(int[] arr) {
+
+        //增量grep，并逐步缩小增量
+        for (int grep = arr.length / 2; grep > 0; grep /= 2) {
+            //遍历所有元素
+            for (int i = grep; i < arr.length; i++) {
+                int j = i;
+                int temp = arr[j];
+                if (arr[j] < arr[j - grep]) {
+                    while (j - grep >= 0 && temp < arr[j - grep]) {
+                        //移动法
+                        arr[j] = arr[j - grep];
+                        j -= grep;
+                    }
+                    arr[j] = temp;
+                }
+
+            }
+        }
+    }
+}
+```
