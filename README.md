@@ -9,3 +9,5 @@
 - [两数平方和](src/main/java/com/superbeyone/algorothms/practice003/SumOfSquareNumbers.md)
 
 - [反转字符串中的元音字符](src/main/java/com/superbeyone/algorothms/practice005/ReverseVowelsOfString.md)
+
+- [合并两个有序数组](src/main/java/com/superbeyone/algorothms/practice006/MergeSortedArray.md)
