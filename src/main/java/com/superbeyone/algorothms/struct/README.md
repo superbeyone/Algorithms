@@ -336,3 +336,80 @@ public class QuickSort {
     }
 }
 ```
+
+#### 归并排序
+
+归并排序（MERGE-SORT）是利用归并的思想实现的排序方法，该算法采用经典的分治（divide-and-conquer）策略（分治法将问题分(divide)成一些小的问题然后递归求解，而治(conquer)的阶段则将分的阶段得到的各答案"修补"在一起，即分而治之)。
+
+```java
+import java.util.Arrays;
+
+/**
+ * @author Mr.superbeyone
+ * @project algorithms
+ * @className MergeSort
+ * @description 归并排序
+ * @date 2020-08-27 14:43
+ **/
+
+public class MergeSort {
+
+    public static void main(String[] args) {
+        int[] array = ArrayUtil.getArray();
+        long start = System.currentTimeMillis();
+        //归并排序
+        mergeSort1(array, 0, array.length - 1, new int[array.length]);
+
+        System.out.println(Arrays.toString(array));
+        System.out.println("耗时：" + (System.currentTimeMillis() - start) + " 毫秒");
+    }
+
+    /**
+     * 递归方式
+     *
+     * @param arr
+     */
+    private static void mergeSort1(int[] arr, int left, int right, int[] temp) {
+
+        //默认 left < right
+        if (left < right) {
+            int mid = (left + right) / 2;
+            mergeSort1(arr, left, mid, temp);
+
+            mergeSort1(arr, mid + 1, right, temp);
+
+            merge(arr, left, mid, right, temp);
+        }
+    }
+
+    private static void merge(int[] arr, int left, int mid, int right, int[] temp) {
+
+        int i = left;
+        int j = mid + 1;
+        int t = 0;
+
+        while (i <= mid && j <= right) {
+            if (arr[i] <= arr[j]) {
+                temp[t++] = arr[i++];
+            } else {
+                temp[t++] = arr[j++];
+            }
+        }
+
+        //将左边剩余元素填充到 temp[] 中
+        while (i <= mid) {
+            temp[t++] = arr[i++];
+        }
+
+        //将右边剩余元素填充到 temp[] 中
+        while (j <= right) {
+            temp[t++] = arr[j++];
+        }
+        t = 0;
+        while (left <= right) {
+            arr[left++] = temp[t++];
+        }
+    }
+}
+
+```
