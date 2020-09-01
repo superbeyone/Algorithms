@@ -13,3 +13,5 @@
 - [合并两个有序数组](src/main/java/com/superbeyone/algorothms/practice006/MergeSortedArray.md)
 
 - [判断链表是否存在环](src/main/java/com/superbeyone/algorothms/practice007/LinkedListCycle.md)
+
+- [Java自动识别文本文件字符编码工具类](src/main/java/com/superbeyone/algorothms/utils/Java自动识别文本文件字符编码工具类.md)
